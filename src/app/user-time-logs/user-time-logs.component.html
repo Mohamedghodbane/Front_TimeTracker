@@ -1,0 +1,21 @@
+<div class="container mt-3">
+    <h2>Your Time Logs</h2>
+    <table class="table table-bordered table-hover text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Date</th>
+                <th>Clock-In Time</th>
+                <th>Clock-Out Time</th>
+                <th>Total Hours</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of userTimeLogs">
+                <td>{{ log.date | date: 'shortDate' }}</td>
+                <td>{{ log.timeIn | date: 'shortTime' }}</td>
+                <td>{{ log.timeOut ? (log.timeOut | date: 'shortTime') : '---' }}</td>
+                <td>{{ log.totalHours ? log.totalHours.toFixed(2) : '---' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

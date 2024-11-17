@@ -1,0 +1,21 @@
+
+<div class="container mt-3">
+    <h4>Add New Request</h4>
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input type="date" id="startDate" [(ngModel)]="newRequest.startDate" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input type="date" id="endDate" [(ngModel)]="newRequest.endDate" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <input type="text" id="status" [(ngModel)]="newRequest.status" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label for="reason" class="form-label">Reason</label>
+        <input type="text" id="reason" [(ngModel)]="newRequest.reason" class="form-control" required />
+    </div>
+    <button (click)="addRequest()" class="btn btn-success">Add Request</button>
+</div>

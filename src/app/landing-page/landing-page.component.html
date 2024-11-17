@@ -1,0 +1,128 @@
+
+
+
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example2" tabindex="0">
+
+  <!-- nav bar start  -->
+  <header id="nav" class="site-header position-fixed text-white bg-dark">
+    <nav id="navbar-example2" class="navbar navbar-expand-lg py-2">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">
+            <img src="assets/images/logo.png" alt="image">
+          </a>
+      
+          <button class="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2" aria-label="Toggle navigation">
+            <ion-icon name="menu-outline" style="font-size: 30px;"></ion-icon>
+          </button>
+      
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Menu</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav align-items-center justify-content-end align-items-center flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link active me-md-4" href="#billboard">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-md-4" href="#residence">Time</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-md-4" href="#about-us">Request</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-md-4" href="#help">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-md-4"  (click)="openModal()">Login</a>
+                  </li>
+                  
+                  <!-- Login Modal Structure -->
+                  <div class="modal fade" #loginModal tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="tabs-listing mt-4">
+                             <!-- Nav Tabs -->
+                            <nav>
+                              <div class="nav nav-tabs d-flex justify-content-center border-0" id="nav-tab" role="tablist">
+                                <button class="btn btn-outline-primary text-uppercase me-3 active" id="nav-login-tab"
+                                        data-bs-toggle="tab" data-bs-target="#nav-login" type="button" role="tab"
+                                        aria-controls="nav-login" aria-selected="true">Log In
+                                </button>
+                              </div>
+                            </nav>
+                            
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="nav-tabContent">
+                              <div class="tab-pane fade active show" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                                
+                                <!-- Angular Login Form -->
+                                <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="form-group flex-wrap p-3">
+                                  
+                                  <!-- Display Error Message -->
+                                  <div *ngIf="loginError" class="alert alert-danger">
+                                    Login failed. Please check your credentials.
+                                  </div>
+                                  
+                                  <!-- Email Field -->
+                                  <div class="form-input col-lg-12 my-4">
+                                    <label for="username" class="form-label fs-6 text-uppercase fw-bold text-black">Email Address</label>
+                                    <mat-form-field class="w-100">
+                                      <input matInput id="username" name="username" [(ngModel)]="loginData.username" required
+                                             placeholder="Email" class="form-control ps-3">
+                                    </mat-form-field>
+                                  </div>
+                                  
+                                  <!-- Password Field -->
+                                  <div class="form-input col-lg-12 my-4">
+                                    <label for="password" class="form-label fs-6 text-uppercase fw-bold text-black">Password</label>
+                                    <mat-form-field class="w-100">
+                                      <input matInput id="password" name="password" [(ngModel)]="loginData.password" type="password"
+                                             required placeholder="Password" class="form-control ps-3">
+                                    </mat-form-field>
+                                    <div id="passwordHelpBlock" class="form-text text-center">
+                                      <a href="#" class="password">Forgot Password?</a>
+                                    </div>
+                                  </div>
+                                  
+                                  <!-- Remember Me Checkbox -->
+                                  <label class="py-3">
+                                    <input type="checkbox" class="d-inline">
+                                    <span class="label-body text-black">Remember Me</span>
+                                  </label>
+                                  
+                                  <!-- Submit Button -->
+                                  <div class="d-grid my-3">
+                                    <button mat-raised-button color="primary" class="btn btn-lg btn-dark text-uppercase btn-rounded-none fs-6"
+                                            type="submit">Log In
+                                    </button>
+                                  </div>
+                                  
+                                  <!-- Logout Button -->
+                                  <div class="d-grid my-3">
+                                    <button mat-raised-button color="warn" class="btn btn-lg btn-dark text-uppercase btn-rounded-none fs-6"
+                                            type="button" (click)="logout()">Log Out
+                                    </button>
+                                  </div>
+                                </form>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+      
+                <li class="nav-item">
+                  <a class="btn-medium btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+                </li>
+                
